@@ -1,0 +1,5 @@
+### logseq_autogit_rt.py
+This script uses the `watchdog` Python library to detect changes made to the files within the Logseq graph directory in realtime. Once changes are detected, if no more changes are made within 30 seconds, a Git pull is made (to ensure no file conflicts), then the changes are committed and pushed to the remote Github repository. The `repo_path` will be the location of my local Logseq files, whereas the `log_file_path` outputs a log for debugging if necessary (e.g., if there is a merge conflict). The 30 second timeout ensures that the script takes up minimal resources while it is running in the background.
+
+### logseq_autogit_pull.py
+This script simply depends on a timer. Every 5 minutes, the script will run and pull any changes made to the remote repository. The `repo_path` will be the location of my local Logseq files, whereas the `log_file_path` outputs a log for debugging if necessary (e.g., if there is a merge conflict).
